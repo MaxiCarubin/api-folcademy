@@ -17,12 +17,14 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-
     @GetMapping
     public ResponseEntity<List<UserReadDTO>> findAllUsers(){
         return ResponseEntity.ok(userService.findAll());
     }
-
+    @GetMapping("/{userId}")
+    public ResponseEntity<UserReadDTO> findById(@PathVariable Integer userId) {
+        return ResponseEntity.ok(userService.findById(userId));
+    }
     @PostMapping
     public ResponseEntity<UserReadDTO> add(@RequestBody UserAddDTO userAddDTO){
         return ResponseEntity.ok(userService.add(userAddDTO));
