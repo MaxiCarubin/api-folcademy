@@ -2,10 +2,12 @@ package com.folcademy.exampleapi.Services;
 
 import com.folcademy.exampleapi.Models.Domain.UserAddDTO;
 import com.folcademy.exampleapi.Models.Domain.UserReadDTO;
+import com.folcademy.exampleapi.Models.Entities.UserEntity;
 import com.folcademy.exampleapi.Models.Mappers.UserMapper;
 import com.folcademy.exampleapi.Models.Repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,5 +35,12 @@ public class UserService {
                         userMapper.userAddDTOToUserEntity(userAddDTO)
                 )
         );
+    }
+
+    public UserReadDTO findById(Integer userId) {
+        return userRepository
+                .findById(userId)
+                .map(userEntity -> userMapper.userEntityToUserReadDTO(userEntity))
+                .get();
     }
 }
