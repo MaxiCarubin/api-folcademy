@@ -1,9 +1,8 @@
 package com.folcademy.exampleapi.Models.Mappers;
 
-import com.folcademy.exampleapi.Models.Domain.UserAddDTO;
-import com.folcademy.exampleapi.Models.Domain.UserReadDTO;
+import com.folcademy.exampleapi.Models.Dtos.UserAddDTO;
+import com.folcademy.exampleapi.Models.Dtos.UserReadDTO;
 import com.folcademy.exampleapi.Models.Entities.UserEntity;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Component;
 
 @Component
